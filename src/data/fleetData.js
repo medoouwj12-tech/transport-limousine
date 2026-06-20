@@ -38,7 +38,7 @@ export const fleetData = [
     taglineAr: "سيدان تنفيذية بيضاء مناسبة للزفاف والمناسبات ورحلات VIP.",
     passengers: 3,
     luggage: 3,
-    basePriceEgp: 10500,
+    basePriceEgp: 8000,
     image: "/images/fleet/mercedes-e200-white/03-exterior-front-day.jpeg",
     images: [
       "/images/fleet/mercedes-e200-white/03-exterior-front-day.jpeg",
@@ -67,7 +67,7 @@ export const fleetData = [
     taglineAr: "مرسيدس سوداء لامعة مجهزة بتزيين ورد أنيق لمواكب الزفاف.",
     passengers: 3,
     luggage: 3,
-    basePriceEgp: 10500,
+    basePriceEgp: 7000,
     image: "/images/fleet/mercedes-c-class-black-wedding/01-exterior-front-bouquet.jpeg",
     images: [
       "/images/fleet/mercedes-c-class-black-wedding/01-exterior-front-bouquet.jpeg",
@@ -200,7 +200,7 @@ export const fleetData = [
     taglineAr: "مرسيدس بيضاء كلاسيكية لوصول أنيق في المناسبات.",
     passengers: 3,
     luggage: 3,
-    basePriceEgp: 9500,
+    basePriceEgp: 8000,
     image: "/images/fleet/mercedes-e-class-white/01-exterior-front.jpeg",
     images: ["/images/fleet/mercedes-e-class-white/01-exterior-front.jpeg"],
     badges: [
@@ -221,7 +221,7 @@ export const fleetData = [
     taglineAr: "سيدان فارهة رئاسية بصالون VIP راق.",
     passengers: 3,
     luggage: 3,
-    basePriceEgp: 14000,
+    basePriceEgp: 18000,
     image: "/images/fleet/mercedes-s-class-black/04-exterior-showroom.jpeg",
     images: [
       "/images/fleet/mercedes-s-class-black/04-exterior-showroom.jpeg",
@@ -270,7 +270,7 @@ export const fleetData = [
     taglineAr: "SUV فارهة بحضور قوي وصالون جلد أحمر وسقف نجوم.",
     passengers: 4,
     luggage: 4,
-    basePriceEgp: 16000,
+    basePriceEgp: 23000,
     image: "/images/fleet/mercedes-g-class-black/04-exterior-front.jpeg",
     images: [
       "/images/fleet/mercedes-g-class-black/04-exterior-front.jpeg",

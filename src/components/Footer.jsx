@@ -77,10 +77,14 @@ export default function Footer({ theme, lang }) {
                 <MapPin className="w-4.5 h-4.5 text-gold-400 flex-shrink-0 mt-0.5" />
                 <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.officeLocation}</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <a href="tel:+201117252213" className="flex items-center space-x-3 hover:text-gold-400 transition-colors">
                 <Phone className="w-4.5 h-4.5 text-gold-400 flex-shrink-0" />
                 <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.officePhone}</span>
-              </div>
+              </a>
+              <a href="https://wa.me/201009419290" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 hover:text-green-400 transition-colors">
+                <MessageSquare className="w-4.5 h-4.5 text-green-400 flex-shrink-0" />
+                <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.officeWhatsApp}</span>
+              </a>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4.5 h-4.5 text-gold-400 flex-shrink-0" />
                 <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{t.officeEmail}</span>

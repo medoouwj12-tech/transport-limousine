@@ -107,8 +107,9 @@ export const translations = {
     
     // Contact & Footer
     contactTitle: "Al-Awadi Corporate Office",
-    officeLocation: "Location: Nile City Towers, North Tower, 22nd Floor, Cairo, Egypt",
-    officePhone: "Phone: +20 100 941 9290",
+    officeLocation: "Location: التوسعات الشمالية، نيوم أكتوبر، بعد ماونتن فيو، 6 أكتوبر",
+    officePhone: "Call: +20 111 725 2213",
+    officeWhatsApp: "WhatsApp: +20 100 941 9290",
     officeEmail: "Email: concierge@alawadi-tourism.com",
     officeHours: "Concierge Desk: 24/7/365 Available",
     footerCopy: "© 2026 Al-Awadi Tourism Egypt. Tailored in Cairo, serving all Egypt. Engineered by Antigravity.",
@@ -222,8 +223,9 @@ export const translations = {
     
     // Contact & Footer
     contactTitle: "المكتب الرئيسي للعوضي للسياحة",
-    officeLocation: "الموقع: أبراج نايل سيتي، البرج الشمالي، الدور 22، القاهرة، مصر",
-    officePhone: "الهاتف: 9290 941 100 20+",
+    officeLocation: "الموقع: التوسعات الشمالية، نيوم أكتوبر، بعد ماونتن فيو، 6 أكتوبر",
+    officePhone: "اتصال: 2213 725 111 20+",
+    officeWhatsApp: "واتساب: 9290 941 100 20+",
     officeEmail: "البريد: concierge@alawadi-tourism.com",
     officeHours: "مكتب الكونسيرج: متاح 24/7 طوال العام",
     footerCopy: "© 2026 العوضي للسياحة مصر. صمم في القاهرة لخدمة جميع أنحاء الجمهورية. تطوير أنتيجرافيتي.",
