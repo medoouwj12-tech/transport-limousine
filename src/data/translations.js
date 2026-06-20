@@ -28,7 +28,7 @@ export const translations = {
     fleetTitle: "The Elite Fleet",
     fleetSubtitle: "Choose from our meticulously maintained fleet of high-end vehicles, sanitized and inspected before every journey.",
     tabFamily: "Family & Intercity Travel",
-    tabWedding: "Weddings & Luxury Events",
+    tabWedding: "Cairo & North Coast VIP",
     capacityPerson: "Passengers",
     capacityLuggage: "Luggage Cases",
     viewSpecs: "View VIP Specifications",
@@ -68,7 +68,7 @@ export const translations = {
     
     labelServiceType: "Select Service Type",
     serviceIntercity: "Intercity & Governorate Travel (توصيل المحافظات والعائلات)",
-    serviceWedding: "Weddings & Luxury Events (زفاف العرايس والمناسبات)",
+    serviceWedding: "Cairo & North Coast VIP (القاهرة والساحل VIP)",
     
     labelVehicleClass: "Select Vehicle Class",
     labelPickupGov: "Pickup Governorate",
@@ -144,7 +144,7 @@ export const translations = {
     fleetTitle: "أسطول النخبة",
     fleetSubtitle: "اختر من بين أسطولنا الفاخر المعتنى به بعناية فائقة، والمعقم والمفحوص بالكامل قبل كل رحلة.",
     tabFamily: "توصيل المحافظات والعائلات",
-    tabWedding: "زفاف العرايس والمناسبات",
+    tabWedding: "القاهرة والساحل VIP",
     capacityPerson: "أفراد",
     capacityLuggage: "حقائب",
     viewSpecs: "عرض مواصفات الـ VIP",
@@ -184,7 +184,7 @@ export const translations = {
     
     labelServiceType: "اختر نوع الخدمة",
     serviceIntercity: "توصيل المحافظات والعائلات (Intercity Travel)",
-    serviceWedding: "زفاف العرايس والمناسبات (Wedding/Luxury Events)",
+    serviceWedding: "القاهرة والساحل VIP (Cairo & North Coast VIP)",
     
     labelVehicleClass: "اختر فئة السيارة",
     labelPickupGov: "محافظة الركوب",
