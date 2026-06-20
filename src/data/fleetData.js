@@ -1,3 +1,7 @@
+export const vehicleMatchesCategory = (car, category) => (
+  Array.isArray(car.category) ? car.category.includes(category) : car.category === category
+);
+
 export const fleetData = [
   {
     id: "mg-hs",
@@ -27,7 +31,7 @@ export const fleetData = [
   },
   {
     id: "mercedes-e200-white",
-    category: "wedding",
+    category: ["family", "wedding"],
     nameEn: "Mercedes-Benz E200 White",
     nameAr: "مرسيدس E200 بيضاء",
     taglineEn: "A bright executive sedan for arrivals, weddings, and VIP trips.",
@@ -56,7 +60,7 @@ export const fleetData = [
   },
   {
     id: "mercedes-c-class-black-wedding",
-    category: "wedding",
+    category: ["family", "wedding"],
     nameEn: "Mercedes-Benz C-Class Black",
     nameAr: "مرسيدس C-Class سوداء",
     taglineEn: "Glossy black Mercedes sedan prepared with floral wedding decoration.",
@@ -103,7 +107,7 @@ export const fleetData = [
   },
   {
     id: "mercedes-v-class-black",
-    category: "family",
+    category: ["family", "wedding"],
     nameEn: "Mercedes-Benz V-Class Black",
     nameAr: "مرسيدس V-Class سوداء",
     taglineEn: "Premium VIP van for groups, families, and long routes.",
@@ -189,7 +193,7 @@ export const fleetData = [
   },
   {
     id: "mercedes-e-class-white",
-    category: "wedding",
+    category: ["family", "wedding"],
     nameEn: "Mercedes-Benz E-Class White",
     nameAr: "مرسيدس E-Class بيضاء",
     taglineEn: "Classic white Mercedes sedan for elegant arrivals.",
@@ -210,7 +214,7 @@ export const fleetData = [
   },
   {
     id: "mercedes-s-class-black",
-    category: "wedding",
+    category: ["family", "wedding"],
     nameEn: "Mercedes-Benz S-Class Black",
     nameAr: "مرسيدس S-Class سوداء",
     taglineEn: "Flagship luxury sedan with a refined VIP cabin.",
@@ -259,7 +263,7 @@ export const fleetData = [
   },
   {
     id: "mercedes-g-class-black",
-    category: "wedding",
+    category: ["family", "wedding"],
     nameEn: "Mercedes-Benz G-Class Black",
     nameAr: "مرسيدس G-Class سوداء",
     taglineEn: "Statement SUV luxury with red leather cabin and star ceiling.",

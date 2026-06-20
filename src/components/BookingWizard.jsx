@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft, Check, FileText, Sparkles, Printer, ShieldCheck } from 'lucide-react';
 import { translations } from '../data/translations';
-import { fleetData } from '../data/fleetData';
+import { fleetData, vehicleMatchesCategory } from '../data/fleetData';
 
 const EGYPT_GOVERNORATES = [
   "Cairo VIP (القاهرة VIP)",
@@ -163,7 +163,7 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
                       type="button"
                       onClick={() => {
                         setServiceType('family');
-                        if (selectedCar && selectedCar.category !== 'family') setSelectedCar(null);
+                        if (selectedCar && !vehicleMatchesCategory(selectedCar, 'family')) setSelectedCar(null);
                       }}
                       className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 cursor-pointer ${
                         serviceType === 'family'
@@ -180,7 +180,7 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
                       type="button"
                       onClick={() => {
                         setServiceType('wedding');
-                        if (selectedCar && selectedCar.category !== 'wedding') setSelectedCar(null);
+                        if (selectedCar && !vehicleMatchesCategory(selectedCar, 'wedding')) setSelectedCar(null);
                       }}
                       className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 cursor-pointer ${
                         serviceType === 'wedding'
@@ -202,7 +202,7 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
                     {t.labelVehicleClass}
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {fleetData.filter(car => car.category === serviceType).map((car) => (
+                    {fleetData.filter(car => vehicleMatchesCategory(car, serviceType)).map((car) => (
                       <div
                         key={car.id}
                         onClick={() => setSelectedCar(car)}

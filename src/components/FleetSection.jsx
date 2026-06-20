@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Users, Briefcase, Wifi, ShieldCheck, MapPin, Sparkles, Heart, HelpCircle, Check, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
-import { fleetData } from '../data/fleetData';
+import { fleetData, vehicleMatchesCategory } from '../data/fleetData';
 import { translations } from '../data/translations';
 
 export default function FleetSection({ theme, lang, onSelectVehicle }) {
@@ -10,7 +10,7 @@ export default function FleetSection({ theme, lang, onSelectVehicle }) {
   const [selectedGallery, setSelectedGallery] = useState(null);
   const t = translations[lang];
 
-  const filteredFleet = fleetData.filter(car => car.category === activeTab);
+  const filteredFleet = fleetData.filter(car => vehicleMatchesCategory(car, activeTab));
   const galleryText = {
     view: lang === 'en' ? 'View gallery' : 'عرض الصور',
     close: lang === 'en' ? 'Close' : 'إغلاق',
