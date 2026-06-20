@@ -87,8 +87,8 @@ export default function VIPExperience({ theme, lang }) {
           <Sparkles className="w-6 h-6 text-gold-400 mx-auto mb-4 animate-bounce" />
           <p className="font-serif italic text-base sm:text-lg leading-relaxed text-gray-200 dark:text-gray-100 max-w-2xl mx-auto">
             {lang === 'en' 
-              ? `"All VIP fleets are equipped with localized satellite GPS and direct communication links to our Elite Dispatch Center at Nile City Towers, Cairo. Real-time updates and flight tracking are monitored 24 hours a day."`
-              : `"جميع أساطيلنا مزودة بنظام تتبع GPS عبر الأقمار الصناعية وربط مباشر بغرفة عمليات إيليت في أبراج نايل سيتي بالقاهرة. يتم رصد حركة الرحلات وتغير مواعيد الطيران على مدار الساعة."`
+              ? `"All VIP fleets are equipped with localized satellite GPS and direct communication links to our Al Awadi Operations Center at Northern Expansions, Nyoum October. Real-time updates and flight tracking are monitored 24 hours a day."`
+              : `"جميع أساطيلنا مزودة بنظام تتبع GPS عبر الأقمار الصناعية وربط مباشر بغرفة عمليات العوضي في التوسعات الشمالية نيوم اكتوبر . يتم رصد حركة الرحلات وتغير مواعيد الطيران على مدار الساعة."`
             }
           </p>
         </div>
