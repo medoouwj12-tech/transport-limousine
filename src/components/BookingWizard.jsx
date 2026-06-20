@@ -4,6 +4,8 @@ import { translations } from '../data/translations';
 import { fleetData } from '../data/fleetData';
 
 const EGYPT_GOVERNORATES = [
+  "Cairo VIP (القاهرة VIP)",
+  "North Coast / Sahel VIP (الساحل الشمالي VIP)",
   "Cairo (القاهرة)",
   "Giza (الجيزة)",
   "Alexandria (الإسكندرية)",
@@ -51,6 +53,11 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
     let distanceMultiplier = 1;
     if (formData.pickupGov && formData.dropoffGov && formData.pickupGov !== formData.dropoffGov) {
       distanceMultiplier = 1.6; // Intercity extra charge
+    }
+    
+    // Apply premium multiplier if VIP Cairo or VIP Sahel are selected
+    if (formData.pickupGov?.includes("VIP") || formData.dropoffGov?.includes("VIP")) {
+      distanceMultiplier *= 1.4; // 40% VIP premium surcharge
     }
     
     setEstimatedPrice(Math.round(base * distanceMultiplier));

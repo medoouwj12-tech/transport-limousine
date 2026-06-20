@@ -1,7 +1,7 @@
 export const translations = {
   en: {
-    brandName: "ELITE LIMOUSINE",
-    brandSubtitle: "ROYAL CHAUFFEUR EGYPT",
+    brandName: "AL-AWADI TOURISM",
+    brandSubtitle: "LUXURY TRANSPORT & TOURISM",
     navHome: "Home",
     navFleet: "The Fleet",
     navBooking: "Reservations",
@@ -106,17 +106,17 @@ export const translations = {
     testimonialsSubtitle: "Hear from our international diplomats, corporate executives, and luxury couples.",
     
     // Contact & Footer
-    contactTitle: "Elite Corporate Office",
+    contactTitle: "Al-Awadi Corporate Office",
     officeLocation: "Location: Nile City Towers, North Tower, 22nd Floor, Cairo, Egypt",
     officePhone: "Phone: +20 100 941 9290",
-    officeEmail: "Email: concierge@elitelimo.eg",
+    officeEmail: "Email: concierge@alawadi-tourism.com",
     officeHours: "Concierge Desk: 24/7/365 Available",
-    footerCopy: "© 2026 Elite Limousine Egypt. Tailored in Cairo, serving all Egypt. Engineered by Antigravity.",
+    footerCopy: "© 2026 Al-Awadi Tourism Egypt. Tailored in Cairo, serving all Egypt. Engineered by Antigravity.",
     footerSubtitle: "Egypt's most prestigious private chauffeur service."
   },
   ar: {
-    brandName: "إيليت ليموزين",
-    brandSubtitle: "السائق الملكي في مصر",
+    brandName: "العوضي للسياحة",
+    brandSubtitle: "لخدمات النقل السياحي والليموزين الفاخر",
     navHome: "الرئيسية",
     navFleet: "الأسطول",
     navBooking: "الحجوزات",
@@ -218,15 +218,15 @@ export const translations = {
 
     // Testimonials
     testimonialsTitle: "ثقة صفوة المجتمع",
-    testimonialsSubtitle: "آراء عملائنا الدبلوماسيين ورجال الأعمال والعرسان الذين حظوا بتجربة إيليت.",
+    testimonialsSubtitle: "آراء عملائنا الدبلوماسيين ورجال الأعمال والعرسان الذين حظوا بتجربة العوضي للسياحة.",
     
     // Contact & Footer
-    contactTitle: "المكتب الرئيسي لإيليت",
+    contactTitle: "المكتب الرئيسي للعوضي للسياحة",
     officeLocation: "الموقع: أبراج نايل سيتي، البرج الشمالي، الدور 22، القاهرة، مصر",
     officePhone: "الهاتف: 9290 941 100 20+",
-    officeEmail: "البريد: concierge@elitelimo.eg",
+    officeEmail: "البريد: concierge@alawadi-tourism.com",
     officeHours: "مكتب الكونسيرج: متاح 24/7 طوال العام",
-    footerCopy: "© 2026 إيليت ليموزين مصر. صمم في القاهرة لخدمة جميع أنحاء الجمهورية. تطوير أنتيجرافيتي.",
-    footerSubtitle: "خدمة السائق الخاص الأكثر فخامة في مصر."
+    footerCopy: "© 2026 العوضي للسياحة مصر. صمم في القاهرة لخدمة جميع أنحاء الجمهورية. تطوير أنتيجرافيتي.",
+    footerSubtitle: "خدمة النقل السياحي والليموزين الأكثر فخامة في مصر."
   }
 };

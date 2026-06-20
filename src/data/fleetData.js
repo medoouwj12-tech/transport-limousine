@@ -10,7 +10,7 @@ export const fleetData = [
     passengers: 6,
     luggage: 6,
     basePriceEgp: 8500,
-    image: "/images/fleet_v_class.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsHighSpeedWifi",
       "specsGpsTracked",
@@ -31,7 +31,7 @@ export const fleetData = [
     passengers: 10,
     luggage: 10,
     basePriceEgp: 6500,
-    image: "/images/fleet_hiace.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsHighSpeedWifi",
       "specsGpsTracked",
@@ -52,7 +52,7 @@ export const fleetData = [
     passengers: 4,
     luggage: 4,
     basePriceEgp: 7500,
-    image: "/images/fleet_cherokee.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsHighSpeedWifi",
       "specsGpsTracked",
@@ -73,7 +73,7 @@ export const fleetData = [
     passengers: 3,
     luggage: 3,
     basePriceEgp: 14000,
-    image: "/images/fleet_s_class.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsFlowerDecor",
       "specsRedCarpet",
@@ -94,7 +94,7 @@ export const fleetData = [
     passengers: 3,
     luggage: 3,
     basePriceEgp: 12500,
-    image: "/images/fleet_bmw7.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsRedCarpet",
       "specsSuitAndTie",
@@ -114,7 +114,7 @@ export const fleetData = [
     passengers: 4,
     luggage: 4,
     basePriceEgp: 13500,
-    image: "/images/fleet_range_rover.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsRedCarpet",
       "specsSuitAndTie",
@@ -134,7 +134,7 @@ export const fleetData = [
     passengers: 2,
     luggage: 2,
     basePriceEgp: 10500,
-    image: "/images/fleet_cabriolet.png",
+    image: "/images/fleet_placeholder.png",
     badges: [
       "specsFlowerDecor",
       "specsSuitAndTie",

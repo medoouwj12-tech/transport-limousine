@@ -34,9 +34,7 @@ export default function Navbar({ theme, toggleTheme, lang, toggleLang }) {
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
           <div className="flex items-center space-x-2 cursor-pointer" onClick={(e) => handleNavClick(e, 'home')}>
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-gold-400 bg-gold-400/10">
-              <Shield className="w-5 h-5 text-gold-400 animate-pulse" />
-            </div>
+            <img src="/images/elawadi_logo.png" alt="Al-Awadi Tourism Logo" className="w-12 h-12 object-contain" />
             <div className={`flex flex-col ${lang === 'ar' ? 'text-right pr-2' : 'text-left pl-2'}`}>
               <span className="font-serif text-lg tracking-wider font-extrabold gold-gradient-text">
                 {t.brandName}
