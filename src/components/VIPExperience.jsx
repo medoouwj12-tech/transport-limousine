@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, Languages, EyeOff, Award, Sparkles } from 'lucide-react';
 import { translations } from '../data/translations';
 

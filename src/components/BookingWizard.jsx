@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, User, ChevronRight, ChevronLeft, Check, Smartphone, FileText, Sparkles, Printer, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronRight, ChevronLeft, Check, FileText, Sparkles, Printer, ShieldCheck } from 'lucide-react';
 import { translations } from '../data/translations';
 import { fleetData } from '../data/fleetData';
 
@@ -23,10 +23,16 @@ const EGYPT_GOVERNORATES = [
   "Dakahlia / Mansoura (الدقهلية)"
 ];
 
+const createTicketDetails = () => ({
+  id: `ELITE-EGY-${Math.floor(100000 + Math.random() * 900000)}`,
+  bars: Array.from({ length: 24 }, () => Math.max(1, Math.round(Math.random() * 4)))
+});
+
 export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar }) {
   const t = translations[lang];
   const [step, setStep] = useState(1);
   const [serviceType, setServiceType] = useState('family'); // family (Intercity) or wedding (Wedding/Events)
+  const [ticketDetails, setTicketDetails] = useState(createTicketDetails);
   const [formData, setFormData] = useState({
     pickupGov: '',
     dropoffGov: '',
@@ -43,25 +49,14 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
   });
 
   // Calculate dynamic pricing based on distance/governorates and car base rate
-  const [estimatedPrice, setEstimatedPrice] = useState(0);
-
-  useEffect(() => {
-    if (!selectedCar) return;
-    let base = selectedCar.basePriceEgp;
-    
-    // Add additional charge if long distance governorate is chosen
-    let distanceMultiplier = 1;
-    if (formData.pickupGov && formData.dropoffGov && formData.pickupGov !== formData.dropoffGov) {
-      distanceMultiplier = 1.6; // Intercity extra charge
-    }
-    
-    // Apply premium multiplier if VIP Cairo or VIP Sahel are selected
-    if (formData.pickupGov?.includes("VIP") || formData.dropoffGov?.includes("VIP")) {
-      distanceMultiplier *= 1.4; // 40% VIP premium surcharge
-    }
-    
-    setEstimatedPrice(Math.round(base * distanceMultiplier));
-  }, [selectedCar, formData.pickupGov, formData.dropoffGov]);
+  let distanceMultiplier = 1;
+  if (formData.pickupGov && formData.dropoffGov && formData.pickupGov !== formData.dropoffGov) {
+    distanceMultiplier = 1.6; // Intercity extra charge
+  }
+  if (formData.pickupGov?.includes("VIP") || formData.dropoffGov?.includes("VIP")) {
+    distanceMultiplier *= 1.4; // 40% VIP premium surcharge
+  }
+  const estimatedPrice = selectedCar ? Math.round(selectedCar.basePriceEgp * distanceMultiplier) : 0;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -85,6 +80,7 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTicketDetails(createTicketDetails());
     setStep(4); // Show confirmation ticket/boarding pass
   };
 
@@ -558,16 +554,16 @@ export default function BookingWizard({ theme, lang, selectedCar, setSelectedCar
                     {/* Simulated Barcode */}
                     <div className="flex flex-col items-center border-b border-gold-500/10 pb-4">
                       <div className="h-10 w-48 bg-black/10 dark:bg-white/10 flex items-center justify-between px-2 py-1 rounded">
-                        {[...Array(24)].map((_, i) => (
+                        {ticketDetails.bars.map((width, i) => (
                           <div
                             key={i}
                             className={`h-full bg-black dark:bg-white`}
-                            style={{ width: `${Math.max(1, Math.round(Math.random() * 4))}px` }}
+                            style={{ width: `${width}px` }}
                           />
                         ))}
                       </div>
                       <span className="text-[8px] font-mono tracking-widest mt-1 opacity-70">
-                        ELITE-EGY-{Math.floor(100000 + Math.random() * 900000)}
+                        {ticketDetails.id}
                       </span>
                     </div>
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Menu, X, Sun, Moon, Globe, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function Navbar({ theme, toggleTheme, lang, toggleLang }) {

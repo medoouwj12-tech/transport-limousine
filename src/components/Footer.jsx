@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Shield, Star } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Shield } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function Footer({ theme, lang }) {

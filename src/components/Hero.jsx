@@ -1,5 +1,4 @@
-import React from 'react';
-import { Calendar, Compass, ShieldAlert, Award, Star, Compass as CompassIcon, Shield } from 'lucide-react';
+import { Calendar, Compass, Star, Shield } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function Hero({ theme, lang, onBookClick, onFleetClick }) {

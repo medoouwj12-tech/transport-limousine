@@ -1,14 +1,55 @@
-import React, { useState } from 'react';
-import { Users, Briefcase, Wifi, ShieldCheck, MapPin, Sparkles, Heart, HelpCircle, Check, Info } from 'lucide-react';
+import { useState } from 'react';
+import { Users, Briefcase, Wifi, ShieldCheck, MapPin, Sparkles, Heart, HelpCircle, Check, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
 import { fleetData } from '../data/fleetData';
 import { translations } from '../data/translations';
 
 export default function FleetSection({ theme, lang, onSelectVehicle }) {
   const [activeTab, setActiveTab] = useState('family'); // 'family' or 'wedding'
   const [selectedSpecCar, setSelectedSpecCar] = useState(null); // for details popup
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState({});
+  const [selectedGallery, setSelectedGallery] = useState(null);
   const t = translations[lang];
 
   const filteredFleet = fleetData.filter(car => car.category === activeTab);
+  const galleryText = {
+    view: lang === 'en' ? 'View gallery' : 'عرض الصور',
+    close: lang === 'en' ? 'Close' : 'إغلاق',
+    photo: lang === 'en' ? 'Photo' : 'صورة',
+    next: lang === 'en' ? 'Next photo' : 'الصورة التالية',
+    previous: lang === 'en' ? 'Previous photo' : 'الصورة السابقة'
+  };
+
+  const getCarImages = (car) => car.images?.length ? car.images : [car.image];
+
+  const getActiveImageIndex = (car) => {
+    const images = getCarImages(car);
+    return Math.min(activeGalleryIndex[car.id] ?? 0, images.length - 1);
+  };
+
+  const setCarImage = (carId, imageIndex) => {
+    setActiveGalleryIndex(prev => ({
+      ...prev,
+      [carId]: imageIndex
+    }));
+  };
+
+  const moveCarImage = (car, direction) => {
+    const images = getCarImages(car);
+    const currentIndex = getActiveImageIndex(car);
+    const nextIndex = (currentIndex + direction + images.length) % images.length;
+    setCarImage(car.id, nextIndex);
+  };
+
+  const moveGalleryImage = (direction) => {
+    setSelectedGallery(prev => {
+      if (!prev) return prev;
+      const images = getCarImages(prev.car);
+      return {
+        ...prev,
+        imageIndex: (prev.imageIndex + direction + images.length) % images.length
+      };
+    });
+  };
 
   // Helper to render icon for badge key
   const getBadgeIcon = (badgeKey) => {
@@ -81,7 +122,12 @@ export default function FleetSection({ theme, lang, onSelectVehicle }) {
 
         {/* Fleet Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredFleet.map((car) => (
+          {filteredFleet.map((car) => {
+            const images = getCarImages(car);
+            const activeImageIndex = getActiveImageIndex(car);
+            const activeImage = images[activeImageIndex];
+
+            return (
             <div
               key={car.id}
               className={`group rounded-3xl overflow-hidden border transition-all duration-500 hover:-translate-y-2 flex flex-col ${
@@ -91,17 +137,73 @@ export default function FleetSection({ theme, lang, onSelectVehicle }) {
               }`}
             >
               {/* Image Container with Zoom effect */}
-              <div className="relative h-56 overflow-hidden bg-black/10">
-                <img
-                  src={car.image}
-                  alt={lang === 'en' ? car.nameEn : car.nameAr}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                />
+              <div className="relative h-64 overflow-hidden bg-black/10">
+                <button
+                  type="button"
+                  onClick={() => setSelectedGallery({ car, imageIndex: activeImageIndex })}
+                  className="block w-full h-full cursor-zoom-in"
+                  aria-label={`${galleryText.view}: ${lang === 'en' ? car.nameEn : car.nameAr}`}
+                >
+                  <img
+                    src={activeImage}
+                    alt={lang === 'en' ? car.nameEn : car.nameAr}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+                  />
+                </button>
+                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
                 <div className="absolute top-4 right-4 bg-pure-black/75 backdrop-blur-md border border-gold-400/40 px-3.5 py-1.5 rounded-full">
                   <span className="text-xs font-bold text-gold-400">
                     {t.governorateCoverage}
                   </span>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedGallery({ car, imageIndex: activeImageIndex })}
+                  className="absolute top-4 left-4 w-9 h-9 rounded-full bg-pure-black/75 border border-white/15 backdrop-blur-md flex items-center justify-center text-white hover:text-gold-400 hover:border-gold-400/40 transition-colors cursor-pointer"
+                  aria-label={`${galleryText.view}: ${lang === 'en' ? car.nameEn : car.nameAr}`}
+                >
+                  <Maximize2 className="w-4 h-4" />
+                </button>
+                {images.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => moveCarImage(car, -1)}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-pure-black/70 border border-white/10 backdrop-blur-md flex items-center justify-center text-white hover:text-gold-400 hover:border-gold-400/40 transition-colors cursor-pointer"
+                      aria-label={galleryText.previous}
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => moveCarImage(car, 1)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-pure-black/70 border border-white/10 backdrop-blur-md flex items-center justify-center text-white hover:text-gold-400 hover:border-gold-400/40 transition-colors cursor-pointer"
+                      aria-label={galleryText.next}
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </>
+                )}
+                <div className="absolute left-4 bottom-4 rounded-full bg-pure-black/75 border border-white/10 px-3 py-1.5 text-[10px] font-bold text-white backdrop-blur-md">
+                  {activeImageIndex + 1} / {images.length}
+                </div>
+                {images.length > 1 && (
+                  <div className="absolute right-4 bottom-4 flex max-w-[62%] gap-1.5 overflow-hidden rounded-full bg-pure-black/65 border border-white/10 p-1.5 backdrop-blur-md">
+                    {images.slice(0, 6).map((image, imageIndex) => (
+                      <button
+                        key={image}
+                        type="button"
+                        onClick={() => setCarImage(car.id, imageIndex)}
+                        className={`h-8 w-8 flex-shrink-0 overflow-hidden rounded-full border transition-all cursor-pointer ${
+                          imageIndex === activeImageIndex ? 'border-gold-400 opacity-100' : 'border-white/15 opacity-65 hover:opacity-100'
+                        }`}
+                        aria-label={`${galleryText.photo} ${imageIndex + 1}`}
+                      >
+                        <img src={image} alt="" className="h-full w-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Card Details */}
@@ -175,7 +277,8 @@ export default function FleetSection({ theme, lang, onSelectVehicle }) {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -243,6 +346,76 @@ export default function FleetSection({ theme, lang, onSelectVehicle }) {
               >
                 {t.selectVehicle}
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen vehicle gallery */}
+      {selectedGallery && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm animate-fade-in">
+          <div className="relative w-full max-w-6xl">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div className="min-w-0">
+                <h3 className="truncate text-lg sm:text-2xl font-bold font-serif text-white">
+                  {lang === 'en' ? selectedGallery.car.nameEn : selectedGallery.car.nameAr}
+                </h3>
+                <p className="mt-1 text-xs font-bold text-gold-400">
+                  {selectedGallery.imageIndex + 1} / {getCarImages(selectedGallery.car).length}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedGallery(null)}
+                className="w-11 h-11 flex-shrink-0 rounded-full border border-white/15 bg-white/10 text-white hover:text-gold-400 hover:border-gold-400/40 transition-colors flex items-center justify-center cursor-pointer"
+                aria-label={galleryText.close}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="relative overflow-hidden rounded-3xl border border-gold-500/25 bg-pure-black">
+              <img
+                src={getCarImages(selectedGallery.car)[selectedGallery.imageIndex]}
+                alt={lang === 'en' ? selectedGallery.car.nameEn : selectedGallery.car.nameAr}
+                className="h-[68vh] w-full object-contain"
+              />
+              {getCarImages(selectedGallery.car).length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => moveGalleryImage(-1)}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-pure-black/75 border border-white/15 backdrop-blur-md flex items-center justify-center text-white hover:text-gold-400 hover:border-gold-400/40 transition-colors cursor-pointer"
+                    aria-label={galleryText.previous}
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => moveGalleryImage(1)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-pure-black/75 border border-white/15 backdrop-blur-md flex items-center justify-center text-white hover:text-gold-400 hover:border-gold-400/40 transition-colors cursor-pointer"
+                    aria-label={galleryText.next}
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+            </div>
+
+            <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
+              {getCarImages(selectedGallery.car).map((image, imageIndex) => (
+                <button
+                  key={image}
+                  type="button"
+                  onClick={() => setSelectedGallery(prev => ({ ...prev, imageIndex }))}
+                  className={`h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl border transition-all cursor-pointer ${
+                    imageIndex === selectedGallery.imageIndex ? 'border-gold-400 opacity-100' : 'border-white/15 opacity-65 hover:opacity-100'
+                  }`}
+                  aria-label={`${galleryText.photo} ${imageIndex + 1}`}
+                >
+                  <img src={image} alt="" className="h-full w-full object-cover" />
+                </button>
+              ))}
             </div>
           </div>
         </div>
