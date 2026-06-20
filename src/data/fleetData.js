@@ -85,10 +85,10 @@ export const fleetData = [
     featuresAr: ["تزيين ورد للزفاف", "سقف بانوراما", "سيدان تنفيذية سوداء", "صالون داخلي فاخر"]
   },
   {
-    id: "haval-suv-red",
+    id: "jetour-x70",
     category: "family",
-    nameEn: "Haval Red SUV",
-    nameAr: "هافال SUV حمراء",
+    nameEn: "Jetour X70",
+    nameAr: "جيتور X70",
     taglineEn: "A modern SUV option for daily transfers and family outings.",
     taglineAr: "اختيار SUV عصري للتنقلات اليومية والخروجات العائلية.",
     passengers: 4,
