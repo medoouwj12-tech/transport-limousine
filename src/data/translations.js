@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    brandName: "AL-AWADI TOURISM",
+    brandName: "AL AWADI TOURISM",
     brandSubtitle: "LUXURY TRANSPORT & TOURISM",
     navHome: "Home",
     navFleet: "The Fleet",

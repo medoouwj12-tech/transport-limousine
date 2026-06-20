@@ -7,7 +7,7 @@ const TESTIMONIALS_DATA = {
     {
       name: "General Mansour K.",
       role: "Diplomatic Attache, Cairo State Escort",
-      quote: "Elite Limousine has been our trusted partner for international delegation transfers. The bilingual chauffeurs are masterfully trained in high-profile diplomat protocols and safety standards. Absolute discretion.",
+      quote: "Al Awadi Tourism has been our trusted partner for international delegation transfers. The bilingual chauffeurs are masterfully trained in high-profile diplomat protocols and safety standards. Absolute discretion.",
       rating: 5
     },
     {

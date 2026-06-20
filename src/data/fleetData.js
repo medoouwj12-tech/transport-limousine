@@ -114,7 +114,7 @@ export const fleetData = [
     taglineAr: "فان VIP فاخر للمجموعات والعائلات والرحلات الطويلة.",
     passengers: 6,
     luggage: 6,
-    basePriceEgp: 8500,
+    basePriceEgp: 13000,
     image: "/images/fleet/mercedes-v-class-black/02-exterior-front-garage.jpeg",
     images: [
       "/images/fleet/mercedes-v-class-black/02-exterior-front-garage.jpeg",
