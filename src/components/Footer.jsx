@@ -91,6 +91,22 @@ export default function Footer({ theme, lang }) {
               </div>
             </div>
 
+            {/* Office Location Map */}
+            <div className={`rounded-2xl overflow-hidden border ${
+              theme === 'dark' ? 'border-gold-500/20' : 'border-gold-500/30'
+            } shadow-lg`}>
+              <iframe
+                title="Office Location - 6th of October City"
+                src="https://www.google.com/maps?q=XVH9%2BJW9+6th+of+October+City&output=embed"
+                width="100%"
+                height="180"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
             {/* Quick WhatsApp Action */}
             <a
               href="https://wa.me/201009419290"
