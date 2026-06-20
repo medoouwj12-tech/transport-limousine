@@ -55,6 +55,32 @@ export const fleetData = [
     featuresAr: ["صالون تنفيذي", "إضاءة محيطية", "نظام صوت فاخر", "مظهر مناسب للزفاف"]
   },
   {
+    id: "mercedes-c-class-black-wedding",
+    category: "wedding",
+    nameEn: "Mercedes-Benz C-Class Black",
+    nameAr: "مرسيدس C-Class سوداء",
+    taglineEn: "Glossy black Mercedes sedan prepared with floral wedding decoration.",
+    taglineAr: "مرسيدس سوداء لامعة مجهزة بتزيين ورد أنيق لمواكب الزفاف.",
+    passengers: 3,
+    luggage: 3,
+    basePriceEgp: 10500,
+    image: "/images/fleet/mercedes-c-class-black-wedding/01-exterior-front-bouquet.jpeg",
+    images: [
+      "/images/fleet/mercedes-c-class-black-wedding/01-exterior-front-bouquet.jpeg",
+      "/images/fleet/mercedes-c-class-black-wedding/02-exterior-front-wedding.jpeg",
+      "/images/fleet/mercedes-c-class-black-wedding/03-interior-panoramic.jpeg"
+    ],
+    badges: [
+      "specsFlowerDecor",
+      "specsRedCarpet",
+      "specsSuitAndTie",
+      "specsSoundSystem",
+      "specsGpsTracked"
+    ],
+    featuresEn: ["Floral Wedding Decor", "Panoramic Roof", "Black Executive Sedan", "Premium Interior"],
+    featuresAr: ["تزيين ورد للزفاف", "سقف بانوراما", "سيدان تنفيذية سوداء", "صالون داخلي فاخر"]
+  },
+  {
     id: "haval-suv-red",
     category: "family",
     nameEn: "Haval Red SUV",
